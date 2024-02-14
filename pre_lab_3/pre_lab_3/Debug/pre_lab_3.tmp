@@ -1,0 +1,35 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/microchip_studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>D:\microchip_studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/microchip_studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+  <FILE>D:/microchip_studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\Debug\pre_lab_3.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>pre_lab_3.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>pre_lab_3.map</FILE>
+  <FILE>pre_lab_3.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>18</LINE></MAIN>
+  <ISR_PCINT1><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>60</LINE></ISR_PCINT1>
+  <Setup><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>31</LINE></Setup>
+  <LOOP><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>53</LINE></LOOP>
+  <JIUMP><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>88</LINE></JIUMP>
+  <verificar><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>70</LINE></verificar>
+  <resta><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>81</LINE></resta>
+  <suma><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\pre_lab_3\pre_lab_3\main.asm</FILE><LINE>75</LINE></suma>
+ </LABELS>
+</ASSEMBLER_INFO>
