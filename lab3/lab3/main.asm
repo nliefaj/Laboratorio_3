@@ -56,6 +56,14 @@ Setup:
 	LDI R16,178
 	OUT TCNT0,R16
 
+	/*//RELOJ
+	LDI R16, (1<<CLKPCE)
+	STS CLKPR,R16 //habilitando prescaler
+
+	LDI R16, 0b0000_1000 //definciendo frecuencia de 1MHz
+	STS CLKPR,R16*/
+
+
 	LDI R16,0b0000_0001
 	STS TIMSK0,R16
 
@@ -79,6 +87,7 @@ LOOP:
 	OUT PORTD,R24
 	CALL delaybounce
 	SBI PORTC,PC3
+	CALL delaybounce
 	CALL delaybounce
 
 	//bloque para decenas
@@ -145,7 +154,7 @@ ISR_TIMER:
 	IN R16,SREG
 	PUSH R16
 
-	SBI PORTB,PB5
+	//SBI PORTB,PB5
 
 	LDI R16,100
 	OUT TCNT0,R16

@@ -24,20 +24,20 @@
  </OUTPUT_FILES>
  <LABELS>
   <MAIN><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>21</LINE></MAIN>
-  <ISR_PCINT1><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>108</LINE></ISR_PCINT1>
-  <ISR_TIMER><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>143</LINE></ISR_TIMER>
-  <TABLA7SEG><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>189</LINE></TABLA7SEG>
+  <ISR_PCINT1><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>117</LINE></ISR_PCINT1>
+  <ISR_TIMER><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>152</LINE></ISR_TIMER>
+  <TABLA7SEG><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>198</LINE></TABLA7SEG>
   <Setup><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>34</LINE></Setup>
-  <delayT0><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>100</LINE></delayT0>
-  <LOOP><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>67</LINE></LOOP>
-  <delaybounce><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>180</LINE></delaybounce>
-  <JIUMP><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>137</LINE></JIUMP>
-  <verificar><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>118</LINE></verificar>
-  <resta><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>130</LINE></resta>
-  <suma><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>124</LINE></suma>
-  <SALTO><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>163</LINE></SALTO>
-  <overflow><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>169</LINE></overflow>
-  <overflow_decenas><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>176</LINE></overflow_decenas>
-  <delay><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>182</LINE></delay>
+  <delayT0><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>109</LINE></delayT0>
+  <LOOP><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>75</LINE></LOOP>
+  <delaybounce><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>189</LINE></delaybounce>
+  <JIUMP><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>146</LINE></JIUMP>
+  <verificar><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>127</LINE></verificar>
+  <resta><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>139</LINE></resta>
+  <suma><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>133</LINE></suma>
+  <SALTO><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>172</LINE></SALTO>
+  <overflow><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>178</LINE></overflow>
+  <overflow_decenas><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>185</LINE></overflow_decenas>
+  <delay><FILE>C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm</FILE><LINE>191</LINE></delay>
  </LABELS>
 </ASSEMBLER_INFO>

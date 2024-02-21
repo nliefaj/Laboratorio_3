@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm Tue Feb 20 01:17:34 2024
+AVRASM ver. 2.2.8  C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm Tue Feb 20 13:33:57 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -696,21 +696,21 @@ EQU  TWIaddr      00000030
 EQU  SPMRaddr     00000032
 EQU  INT_VECTORS_SIZE 00000034
 CSEG MAIN         00000022
-CSEG ISR_PCINT1   00000064
-CSEG ISR_TIMER    0000007d
+CSEG ISR_PCINT1   00000066
+CSEG ISR_TIMER    0000007f
 DEF  count_pins   r20
 DEF  counter      r21
 DEF  count_decenas r22
-CSEG TABLA7SEG    0000009a
+CSEG TABLA7SEG    0000009b
 CSEG Setup        00000029
-CSEG delayT0      0000005f
+CSEG delayT0      00000061
 CSEG LOOP         00000045
-CSEG delaybounce  00000096
-CSEG JIUMP        00000079
-CSEG verificar    0000006b
-CSEG resta        00000074
-CSEG suma         0000006f
-CSEG SALTO        0000008b
-CSEG overflow     0000008f
-CSEG overflow_decenas 00000094
-CSEG delay        00000097
+CSEG delaybounce  00000097
+CSEG JIUMP        0000007b
+CSEG verificar    0000006d
+CSEG resta        00000076
+CSEG suma         00000071
+CSEG SALTO        0000008c
+CSEG overflow     00000090
+CSEG overflow_decenas 00000095
+CSEG delay        00000098

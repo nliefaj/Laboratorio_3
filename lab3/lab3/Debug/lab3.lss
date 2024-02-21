@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm Tue Feb 20 01:17:34 2024
+AVRASM ver. 2.2.8  C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm Tue Feb 20 13:33:57 2024
 
 [builtin](2): Including file 'D:/microchip_studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc'
 C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm(9): Including file 'D:/microchip_studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\M328PDEF.inc'
@@ -1042,9 +1042,9 @@ C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm(9): I
                                  .org 0x00
 000000 940c 0022                 	JMP MAIN			//Vector reset
                                  .org 0x08				//Vector interrupçion puerto c
-000008 940c 0064                 	JMP ISR_PCINT1
+000008 940c 0066                 	JMP ISR_PCINT1
                                  .org 0x0020
-000020 940c 007d                 	JMP ISR_TIMER
+000020 940c 007f                 	JMP ISR_TIMER
                                  .DEF count_pins=R20
                                  .DEF counter=R21
                                  .DEF count_decenas=R22
@@ -1056,7 +1056,7 @@ C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm(9): I
 000025 bf1e                      	OUT SPH,R17
                                  
 000026 e0f1                      	LDI ZH, HIGH(TABLA7SEG<<1)
-000027 e3e4                      	LDI ZL, LOW(TABLA7SEG<<1)
+000027 e3e6                      	LDI ZL, LOW(TABLA7SEG<<1)
 000028 9104                      	LPM R16,Z
                                  /**********************
                                                              SETUP
@@ -1087,13 +1087,21 @@ C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm(9): I
 00003a eb02                      	LDI R16,178
 00003b bd06                      	OUT TCNT0,R16
                                  
+                                 	/*//RELOJ
+                                 	LDI R16, (1<<CLKPCE)
+                                 	STS CLKPR,R16 //habilitando prescaler
+                                 
+                                 	LDI R16, 0b0000_1000 //definciendo frecuencia de 1MHz
+                                 	STS CLKPR,R16*/
+                                 
+                                 
 00003c e001                      	LDI R16,0b0000_0001
 00003d 9300 006e                 	STS TIMSK0,R16
                                  
 00003f e000                      	LDI R16,0
 000040 9300 00c1                 	STS UCSR0B,R16
                                  
-000042 940e 005f                 	CALL delayT0
+000042 940e 0061                 	CALL delayT0
 000044 9478                      	SEI					
                                  LOOP:
                                  	//outleds
@@ -1103,127 +1111,128 @@ C:\Users\lefaj\Documents\Atmel Studio\7.0\Laboratorio_3\lab3\lab3\main.asm(9): I
                                  	//bloque unidades
 000046 9843                      	CBI PORTC,PC3
 000047 e0f1                      	LDI ZH, HIGH(TABLA7SEG<<1)
-000048 e3e4                      	LDI ZL, LOW(TABLA7SEG<<1)
+000048 e3e6                      	LDI ZL, LOW(TABLA7SEG<<1)
 000049 0fe5                      	ADD ZL,counter
 00004a 9184                      	LPM R24,Z //Load from program memory R16
 00004b 0f88                      	LSL R24
 00004c b98b                      	OUT PORTD,R24
-00004d 940e 0096                 	CALL delaybounce
+00004d 940e 0097                 	CALL delaybounce
 00004f 9a43                      	SBI PORTC,PC3
-000050 940e 0096                 	CALL delaybounce
+000050 940e 0097                 	CALL delaybounce
+000052 940e 0097                 	CALL delaybounce
                                  
                                  	//bloque para decenas
-000052 9842                      	CBI PORTC,PC2
-000053 e0f1                      	LDI ZH, HIGH(TABLA7SEG<<1)
-000054 e3e4                      	LDI ZL, LOW(TABLA7SEG<<1)
-000055 0fe6                      	ADD ZL,count_decenas
-000056 9184                      	LPM R24,Z //Load from program memory R16
-000057 0f88                      	LSL R24
-000058 b98b                      	OUT PORTD,R24
-000059 940e 0096                 	CALL delaybounce
-00005b 9a42                      	SBI PORTC,PC2
-00005c 940e 0096                 	CALL delaybounce
+000054 9842                      	CBI PORTC,PC2
+000055 e0f1                      	LDI ZH, HIGH(TABLA7SEG<<1)
+000056 e3e6                      	LDI ZL, LOW(TABLA7SEG<<1)
+000057 0fe6                      	ADD ZL,count_decenas
+000058 9184                      	LPM R24,Z //Load from program memory R16
+000059 0f88                      	LSL R24
+00005a b98b                      	OUT PORTD,R24
+00005b 940e 0097                 	CALL delaybounce
+00005d 9a42                      	SBI PORTC,PC2
+00005e 940e 0097                 	CALL delaybounce
                                  
-00005e cfe6                      	RJMP LOOP
+000060 cfe4                      	RJMP LOOP
                                  //************************
                                  // SUB RUTINA
                                  //***********************
                                  delayT0:
-00005f e005                      	LDI R16, (1 << CS02) | (1 << CS00)
-000060 bd05                      	OUT TCCR0B, R16
+000061 e005                      	LDI R16, (1 << CS02) | (1 << CS00)
+000062 bd05                      	OUT TCCR0B, R16
                                  
-000061 eb02                      	LDI R16, 178
-000062 bd06                      	OUT TCNT0, R16
+000063 eb02                      	LDI R16, 178
+000064 bd06                      	OUT TCNT0, R16
                                  
-000063 9508                      	RET
+000065 9508                      	RET
                                  ISR_PCINT1:
-000064 930f                      	PUSH R16
-000065 b70f                      	IN R16,SREG
 000066 930f                      	PUSH R16
+000067 b70f                      	IN R16,SREG
+000068 930f                      	PUSH R16
                                  
-000067 9553                      	INC counter
-000068 3051                      	CPI counter,1
-000069 f079                      	BREQ JIUMP
-00006a c000                      	RJMP verificar
+000069 9553                      	INC counter
+00006a 3051                      	CPI counter,1
+00006b f079                      	BREQ JIUMP
+00006c c000                      	RJMP verificar
                                  
                                  verificar:
-00006b 2755                      	CLR counter
-00006c 9b40                      	SBIS PORTC,0
-00006d c006                      	RJMP resta
-00006e c000                      	RJMP suma
+00006d 2755                      	CLR counter
+00006e 9b40                      	SBIS PORTC,0
+00006f c006                      	RJMP resta
+000070 c000                      	RJMP suma
                                  
                                  suma:
-00006f 9543                      	INC count_pins
-000070 ff44                      	SBRS count_pins,4
-000071 c007                      	RJMP JIUMP
-000072 e040                      	LDI count_pins,0b0000_0000
-000073 c005                      	RJMP JIUMP
+000071 9543                      	INC count_pins
+000072 ff44                      	SBRS count_pins,4
+000073 c007                      	RJMP JIUMP
+000074 e040                      	LDI count_pins,0b0000_0000
+000075 c005                      	RJMP JIUMP
                                  resta:
-000074 954a                      	DEC count_pins
-000075 ff47                      	SBRS count_pins, 7
-000076 c002                      	RJMP JIUMP
-000077 2744                      	CLR count_pins
-000078 c000                      	RJMP JIUMP
+000076 954a                      	DEC count_pins
+000077 ff47                      	SBRS count_pins, 7
+000078 c002                      	RJMP JIUMP
+000079 2744                      	CLR count_pins
+00007a c000                      	RJMP JIUMP
                                  
                                  JIUMP:
-000079 910f                      	POP R16
-00007a bf0f                      	OUT SREG,R16
 00007b 910f                      	POP R16
-00007c 9518                      	RETI
+00007c bf0f                      	OUT SREG,R16
+00007d 910f                      	POP R16
+00007e 9518                      	RETI
                                  
                                  ISR_TIMER:
-00007d 930f                      	PUSH R16
-00007e b70f                      	IN R16,SREG
 00007f 930f                      	PUSH R16
+000080 b70f                      	IN R16,SREG
+000081 930f                      	PUSH R16
                                  
-000080 9a2d                      	SBI PORTB,PB5
+                                 	//SBI PORTB,PB5
                                  
-000081 e604                      	LDI R16,100
-000082 bd06                      	OUT TCNT0,R16
+000082 e604                      	LDI R16,100
+000083 bd06                      	OUT TCNT0,R16
                                  
-000083 9573                      	INC R23
-000084 3674                      	CPI R23, 100
-000085 f429                      	BRNE SALTO
-000086 2777                      	CLR R23
+000084 9573                      	INC R23
+000085 3674                      	CPI R23, 100
+000086 f429                      	BRNE SALTO
+000087 2777                      	CLR R23
                                  
-000087 9553                      	INC counter
-000088 305a                      	CPI counter, 0b0000_1010
-000089 f029                      	BREQ overflow
-00008a c000                      	RJMP SALTO
+000088 9553                      	INC counter
+000089 305a                      	CPI counter, 0b0000_1010
+00008a f029                      	BREQ overflow
+00008b c000                      	RJMP SALTO
                                  
                                  SALTO:
-00008b 910f                      	POP R16
-00008c bf0f                      	OUT SREG,R16
-00008d 910f                      	POP R16
-00008e 9518                      	RETI
+00008c 910f                      	POP R16
+00008d bf0f                      	OUT SREG,R16
+00008e 910f                      	POP R16
+00008f 9518                      	RETI
                                  
                                  overflow:
-00008f e050                      	LDI counter,0b0000
-000090 9563                      	INC count_decenas
-000091 3066                      	CPI count_decenas, 0b0000_0110
-000092 f009                      	BREQ overflow_decenas
-000093 cff7                      	RJMP SALTO
+000090 e050                      	LDI counter,0b0000
+000091 9563                      	INC count_decenas
+000092 3066                      	CPI count_decenas, 0b0000_0110
+000093 f009                      	BREQ overflow_decenas
+000094 cff7                      	RJMP SALTO
                                  
                                  overflow_decenas:
-000094 e060                      	LDI count_decenas,0b0000_0000
-000095 cff5                      	RJMP SALTO
+000095 e060                      	LDI count_decenas,0b0000_0000
+000096 cff5                      	RJMP SALTO
                                  
                                  delaybounce:
-000096 ef0a                      	LDI r16,250//250 para notar el valor de muestreo en los display
+000097 ef0a                      	LDI r16,250//250 para notar el valor de muestreo en los display
                                  	delay:
-000097 950a                      		DEC r16
-000098 f7f1                      		BRNE delay
-000099 9508                      	RET
+000098 950a                      		DEC r16
+000099 f7f1                      		BRNE delay
+00009a 9508                      	RET
                                  //*******************************************************************
                                  //TABLA DE VALORES
                                  //*******************************************************************
-00009a 063f
-00009b 4f5b
-00009c 6d66
-00009d 077d
-00009e 6f7f
-00009f 7c77
-0000a0 5e39
+00009b 063f
+00009c 4f5b
+00009d 6d66
+00009e 077d
+00009f 6f7f
+0000a0 7c77
+0000a1 5e39
 
 
 RESOURCE USE INFORMATION
@@ -1254,7 +1263,7 @@ andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0
 brcc  :   0 brcs  :   0 break :   0 breq  :   3 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   2 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   5 cbi   :   2 cbr   :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   6 cbi   :   2 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   3 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   4 cpse  :   0 dec   :   2 eor   :   0 fmul  :   0 fmuls :   0 
@@ -1263,7 +1272,7 @@ ld    :   0 ldd   :   0 ldi   :  25 lds   :   0 lpm   :   6 lsl   :   2
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :  15 pop   :   4 
 push  :   4 rcall :   0 ret   :   2 reti  :   2 rjmp  :  11 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   3 sbic  :   0 sbis  :   1 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   2 sbic  :   0 sbis  :   1 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   2 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   5 
@@ -1273,7 +1282,7 @@ Instructions used: 25 out of 113 (22.1%)
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000144    252     16    268   32768   0.8%
+[.cseg] 0x000000 0x000146    254     16    270   32768   0.8%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
